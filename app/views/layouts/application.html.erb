@@ -21,13 +21,7 @@
   <body>
     <div class="container-narrow">
       <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li <%if session[:index] ==1%>class="active"<%end%>><%=link_to "主页" , root_path %></li>
-          <li <%if session[:index] ==2%>class="active"<%end%>><%=link_to "博客" , posts_path %></li>
-          <li <%if session[:index] ==3%>class="active"<%end%>><%=link_to "朋友",friends_path%></li>
-          <li <%if session[:index] ==4%>class="active"<%end%>><%=link_to "关于", about_me_path%></li>
-        </ul>
-        <h3 class="muted">静坐常思已过，闲谈莫论人非</h3>
+        <%=render 'home/top'%>
       </div>
       <hr>
       <%=yield%>

@@ -1,9 +1,8 @@
 BtDemo::Application.routes.draw do
   
-  get "home/index"
   match 'about_me' => 'home#about', :as => :about_me
   match 'friends' => 'home#friends', :as => :friends
-  match 'posts/with_tag' => 'posts#posts_with_tag', :as => :with_tag
+  match 'login_out' => 'home#login_out', :as => :login_out
  
   resources :posts
 

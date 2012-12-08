@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   before_filter :save_session, :only => [:create, :update,:destroy,:new,:edit]
 
   def index
-    @posts = Post.order(:created_at).page params[:page]
+    if params[:tag].blank?
+      @posts = Post.order(:created_at).page params[:page]
+    else
+      @posts = Post.where(["tag like ?",'%'+params[:tag].to_s.strip+'%']).order(:created_at).page params[:page]
+    end
     session[:index] = 2
   end
 
@@ -58,11 +62,6 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def posts_with_tag
-    @posts = Post.all_posts_with_tag(params[:tag])
-  end
-
 
   private 
   def save_session

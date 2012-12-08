@@ -6,11 +6,11 @@
    <p><%= raw fast_view post,500%></p>     
     <h4>
       <%post.all_tags.each do |tag|%>
-      <%=link_to tag,:controller => "posts", :action => "posts_with_tag", :tag => tag%> .
+      <%=link_to tag,:controller => "posts", :action => "index", :tag => tag%> .
       <%end%>
     &nbsp;&nbsp;
       <%unless session[:admin]%>
-         Posted <%=time_strf_china post%>
+          <%=time_strf_china post%>
       <%else%>
           <%= link_to "Edit", edit_post_path(post), :class => 'btn' %>
           <%= link_to "Delete", post_path(post), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>

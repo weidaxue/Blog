@@ -11,4 +11,11 @@ class HomeController < ApplicationController
   def friends
   	session[:index] = 3
   end
+
+  def login_out
+  	session[:admin] = nil
+  	session[:index] = 1
+  	redirect_to root_path
+  end
+
 end

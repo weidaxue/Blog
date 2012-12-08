@@ -2,7 +2,7 @@
 
 module PostsHelper
 	def time_strf_china(post)
-		post.created_at.strftime("%Y/%m/%d")
+		post.updated_at.strftime("%F %R")
 	end
 
 	def fast_view(post,number)

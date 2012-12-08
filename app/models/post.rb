@@ -10,15 +10,5 @@ class Post < ActiveRecord::Base
   def all_tags
   	 tag.nil??  [] : tag.split(/,|，|\s+/)
   end
-
-  def self.all_posts_with_tag(str_tag)
-    posts = []
-  	Post.all.each do |post|
-  		if post.tag
-  			posts << post if post.tag.include? str_tag
-  		end
-  	end
-  	posts
-  end
-
+  
 end
