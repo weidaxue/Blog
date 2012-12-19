@@ -1,4 +1,3 @@
-Blog
-====
+== Welcome to Blog
 
-Blog
+Blog is a blog with weidaxue.
