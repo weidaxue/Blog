@@ -1,0 +1,20 @@
+
+<% @posts.each do |post| -%>
+<div class="hero-unit">
+  <h2><%= link_to post.name, post_path(post) %></h2>
+ 
+   <p><%= raw fast_view post,500%></p>     
+    <h4>
+      <%post.all_tags.each do |tag|%>
+      <%=link_to tag,:controller => "posts", :action => "index", :tag => tag%> .
+      <%end%>
+    &nbsp;&nbsp;
+      <%unless session[:admin]%>
+          <%=time_strf_china post%>
+      <%else%>
+          <%= link_to "Edit", edit_post_path(post), :class => 'btn' %>
+          <%= link_to "Delete", post_path(post), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+      <%end%>
+  </h4>
+</div>
+<% end -%>

@@ -1,0 +1,10 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+en:
+  views:
+    pagination:
+      first: "&laquo; 首页 "
+      last: "末页 &raquo;"
+      previous: "&lsaquo; 前一页"
+      next: "下一页 &rsaquo;"
+      truncate: "..."
