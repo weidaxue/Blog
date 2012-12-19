@@ -17,3 +17,6 @@
 # Ignore the test
 /test
 
+#Ignore the Gemfile.lock
+Gemfile.lock
+
