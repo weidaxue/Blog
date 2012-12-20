@@ -1,1 +1,18 @@
+<h1 style="text-align:center;"><%=@post.name%></h1>
 <div class="show_text"><%= raw @post.content %></div>
+<ul class="pager">
+  <li class="previous">
+  	<%if @pre_page%>
+      <a href="/posts/<%=@pre_page.id%>">&larr; 上一篇</a>
+    <%else%>
+      <%=link_to "返回",posts_path%>
+    <%end%>
+  </li>
+  <li class="next">
+  	<%if @next_page%>
+    	<a href="/posts/<%=@next_page.id%>">下一篇 &rarr;</a>
+    <%else%>
+    	<%=link_to "返回",posts_path%>
+    <%end%>
+  </li>
+</ul>

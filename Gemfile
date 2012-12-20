@@ -6,7 +6,6 @@ gem 'sqlite3'
 gem 'mysql2' 
 
 gem 'thin'
-
 gem 'libv8', '~> 3.11.8.3'
 
 group :assets do

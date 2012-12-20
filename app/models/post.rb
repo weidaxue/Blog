@@ -10,5 +10,13 @@ class Post < ActiveRecord::Base
   def all_tags
   	 tag.nil??  [] : tag.split(/,|，|\s+/)
   end
+
+  def post_next(order="inc")
+  	order== "inc"? Post.where("id < #{id}").last : Post.where("id > #{id}").first
+  end
+
+  def last_post
+  	
+  end
   
 end

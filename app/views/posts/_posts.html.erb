@@ -12,8 +12,8 @@
       <%unless session[:admin]%>
           <%=time_strf_china post%>
       <%else%>
-          <%= link_to "Edit", edit_post_path(post), :class => 'btn' %>
-          <%= link_to "Delete", post_path(post), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+          <%= link_to "修改", edit_post_path(post), :class => 'btn btn-primary' %>
+          <%= link_to "删除", post_path(post), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-danger' %>
       <%end%>
   </h4>
 </div>

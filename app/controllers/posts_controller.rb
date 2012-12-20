@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:tag].blank?
-      @posts = Post.order(:created_at).page params[:page]
+      @posts = Post.order("created_at desc").page params[:page]
     else
       @posts = Post.where(["tag like ?",'%'+params[:tag].to_s.strip+'%']).order(:created_at).page params[:page]
     end
@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @pre_page = @post.post_next('inc')
+    @next_page = @post.post_next('desc')
   end
 
   def new
