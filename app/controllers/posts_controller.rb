@@ -26,12 +26,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-
   def create
     @post = Post.new(params[:post])
-
     respond_to do |format|
       if @post.save
+        BlogMailer.report_new_one_blog(@post.id).deliver!
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
