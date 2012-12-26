@@ -69,7 +69,7 @@ BtDemo::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.exmail.qq.com",
     :port                 => 25,
-    :user_name            => 'service＠weidaxue.me',
+    :user_name            => 'service@weidaxue.me',
     :password             => 'weidaxue2012',
     :authentication       => 'plain',
     :enable_starttls_auto => true
