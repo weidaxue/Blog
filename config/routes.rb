@@ -1,10 +1,15 @@
 BtDemo::Application.routes.draw do
-  
-  match 'about_me' => 'home#about', :as => :about_me
-  match 'friends' => 'home#friends', :as => :friends
-  match 'login_out' => 'home#login_out', :as => :login_out
+
+  match "users/sign_in" =>"sessions#new", :as => :sign_in , :via => :get
+  match "users/login" =>"sessions#create" , :via => :post
+  match "sessions/destroy" =>"sessions#destroy",:as => :sign_out , :via => :get
+
+  match 'about_me' => 'home#about', :as => :about_me ,:via => :get
+  match 'friends' => 'home#friends', :as => :friends ,:via => :get
+  match 'login_out' => 'home#login_out', :as => :login_out ,:via => :get
  
   resources :posts
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'mysql2' 
+gem "bcrypt-ruby", "~> 3.0.1"
 
 gem 'thin'
 gem 'libv8', '~> 3.11.8.3'

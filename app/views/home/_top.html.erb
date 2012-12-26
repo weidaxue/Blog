@@ -3,8 +3,11 @@
           <li <%if session[:index] ==2%>class="active"<%end%>><%=link_to "博客" , posts_path %></li>
           <li <%if session[:index] ==3%>class="active"<%end%>><%=link_to "朋友",friends_path%></li>
           <li <%if session[:index] ==4%>class="active"<%end%>><%=link_to "关于", about_me_path%></li>
-        <%if session[:admin] %>
-        <li ><%=link_to "退出", login_out_path%></li>
+        <%if current_user %>
+        <li ><%=link_to "退出", sign_out_path%></li>
+        <%else%>
+        <li <%if session[:index] ==5%>class="active"<%end%>>
+          <%=link_to "登录", sign_in_path%></li>
         <%end%>
         </ul>
      <h3 class="muted">静坐常思已过，闲谈莫论人非</h3>

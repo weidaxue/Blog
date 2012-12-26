@@ -1,0 +1,28 @@
+<%= form_for @user, :url => users_login_path, :method=>:post ,
+              :html => { :class => "form-horizontal"}   do |f|  %>
+<fieldset>
+	<div class="control-group <%=:error unless flash[:mail_error].to_s.blank?%>">
+			 <label class="control-label" for="input01"><i class="icon-user"> /</i>
+					<i class="icon-envelope"></i></label>
+			<div class="controls">
+			    <%= f.text_field :email, :maxlength => 30, :size => 15, 
+			                :placeholder => 'email' ,:class=>"input-xlarge"%>
+			  <p class="help-block"><%=flash[:mail_error].to_s%></p>
+			</div>
+	</div>
+	<div class="control-group <%=:error unless flash[:password_error].to_s.blank?%>">
+			 <label class="control-label" for="input01">
+			 	  <i class="icon-lock"> /</i>
+					<i class="icon-star"></i></label>
+			<div class="controls">
+			     <%= f.password_field :password, :maxlength => 30, :size => 15, 
+			                :placeholder => 'password' ,:class=>"input-xlarge"%>
+			  <p class="help-block"><%=flash[:password_error].to_s%></p>
+			</div>
+	</div>
+<div class="controls">
+  <button class="btn btn-primary" type="submit">登录</button> 
+	<%= link_to "取消", sign_in_path %>
+</div>
+<fieldset>
+<% end -%>

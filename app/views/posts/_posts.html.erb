@@ -9,7 +9,7 @@
       <%=link_to tag,:controller => "posts", :action => "index", :tag => tag%> .
       <%end%>
     &nbsp;&nbsp;
-      <%unless session[:admin]%>
+      <%unless current_user%>
           <%=time_strf_china post%>
       <%else%>
           <%= link_to "修改", edit_post_path(post), :class => 'btn btn-primary' %>

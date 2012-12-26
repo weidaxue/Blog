@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with :name => "songjiayang", :password => "songjiayang", :except => [:index, :show,:posts_with_tag]
+  # http_basic_authenticate_with :name => "songjiayang", :password => "songjiayang", :except => [:index, :show,:posts_with_tag]
   before_filter :save_session, :only => [:create, :update,:destroy,:new,:edit]
 
   def index
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 
   private 
   def save_session
-    session[:admin] ||= 1
+    redirect_to sign_in_path unless current_user
   end
 end
 
